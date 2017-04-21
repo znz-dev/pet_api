@@ -7,7 +7,6 @@ class CreatePets < ActiveRecord::Migration[5.0]
       t.string :status, comment: '宠物状态'
       t.integer :provider_id, comment: '关联宠物提供人'
       t.integer :adopter_id, comment: '关联宠物领养人'
-      t.
 
       t.timestamps
     end
