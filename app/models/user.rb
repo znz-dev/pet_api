@@ -1,4 +1,7 @@
+require 'carrierwave/orm/activerecord'
+
 class User < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
 
   def self.query_users_by_params(_params)
     users = User.all
@@ -26,6 +29,6 @@ class User < ApplicationRecord
   private
 
   def self.user_params(params)
-    params.require(:user).permit(:username, :password, :real_name, :phone, :email)
+    params.require(:user).permit(:username, :avatar, :password, :real_name, :phone, :email)
   end
 end
