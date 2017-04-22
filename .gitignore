@@ -19,3 +19,4 @@
 .idea/
 Gemfile.lock
 db/schema.rb
+public/uploads
