@@ -16,7 +16,6 @@ class User < ApplicationRecord
 
   def self.update_user_by_params(params)
     user = User.find(params[:id])
-    p user_params(params)
     user.update!(user_params(params))
     user
   end
@@ -29,6 +28,6 @@ class User < ApplicationRecord
   private
 
   def self.user_params(params)
-    params.require(:user).permit(:username, :avatar, :password, :real_name, :phone, :email)
+    params.permit(:username, :avatar, :password, :real_name, :phone, :email)
   end
 end
