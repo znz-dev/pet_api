@@ -1,2 +1,2 @@
-json.extract! user, :username, :avatar, :real_name, :phone, :email
+json.extract! user, :name, :species, :gender, :status, :avatar
 
