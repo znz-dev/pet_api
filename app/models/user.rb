@@ -25,6 +25,11 @@ class User < ApplicationRecord
     user.destroy!
   end
 
+  def self.sign_in_by_params(params)
+    username, password = params.values_at(:username, password)
+    user = User.find_by_username(username)
+  end
+
   private
 
   def self.user_params(params)

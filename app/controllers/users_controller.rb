@@ -22,6 +22,10 @@ class UsersController < ApplicationController
     head :no_content
   end
 
+  def login
+    @user = User.sign_in_by_params(params)
+  end
+
   private
 
   def set_user
