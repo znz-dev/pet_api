@@ -4,25 +4,49 @@ class Pet < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   def self.query_pets_by_params(_params)
-    pets = Pet.all
-    pets
+    pets = []
+    response = Response.rescue do |res|
+      pets = Pet.all
+    end
+
+    [response, pets]
   end
 
   def self.create_pet_by_params(params)
-    pet = Pet.new(pet_params(params))
-    pet.save!
-    pet
+    pet = nil
+    response = Response.rescue do |res|
+      pet = Pet.new(pet_params(params))
+      pet.save!
+    end
+    [response, pet]
+  end
+
+  def self.query_pet_by_id(params)
+    pet = nil
+    response = Response.rescue do |res|
+      pet = Pet.find_by_id(params[:id])
+      res.error('不存在该宠物') if pet.blank?
+    end
+    [response, pet]
   end
 
   def self.update_pet_by_params(params)
-    pet = Pet.find(params[:id])
-    pet.update!(pet_params(params))
-    pet
+    pet = nil
+    response = Response.rescue do |res|
+      pet = Pet.find_by_id(params[:id])
+      pet.update!(pet_params(params))
+    end
+
+    [response, pet]
   end
 
   def self.delete_pet_by_params(params)
-    pet = Pet.find(params [:id])
-    pet.destroy!
+    response = Response.rescue do |res|
+      pet = Pet.find_by_id(params [:id])
+      res.raise_error('该用户不存在') if pet.blank?
+      pet.destroy!
+    end
+    response
   end
 
   private
