@@ -3,6 +3,8 @@ require 'carrierwave/orm/activerecord'
 class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
+  has_many :pets, foreign_key: :provider_id
+
   def self.query_users_by_params(_params)
     users = User.all
     users

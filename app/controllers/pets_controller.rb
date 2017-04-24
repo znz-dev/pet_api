@@ -1,4 +1,5 @@
 class PetsController < ApplicationController
+  # TODO test
   def index
     @response, @pets = Pet.query_pets_by_params(params)
   end
