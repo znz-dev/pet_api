@@ -2,6 +2,7 @@ require 'carrierwave/orm/activerecord'
 
 class Pet < ApplicationRecord
   belongs_to :provider, class_name: 'User'
+  belongs_to :adopter, class_name: 'User', optional: :true
   mount_uploader :avatar, AvatarUploader
 
   module Order
@@ -65,7 +66,8 @@ class Pet < ApplicationRecord
 
   private
 
+  # TODO 这里没有验证 provider 和 adopter 是否存在
   def self.pet_params(params)
-    params.permit(:name, :species, :gender, :status, :avatar, :provider_id)
+    params.permit(:name, :species, :gender, :status, :avatar, :provider_id, :adopter_id)
   end
 end
