@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :users, only: %i(index create show update destroy)
   resources :pets, only: %i(index create show update destroy)
   resources :pet_applications
+  resources :albums
 end
