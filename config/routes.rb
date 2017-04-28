@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :pet_applications
   resources :albums
   resources :photos
+
+  post '/login', to: 'users#login'
 end

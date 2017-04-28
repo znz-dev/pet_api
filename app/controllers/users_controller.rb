@@ -1,34 +1,28 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
   def index
-    @users = User.query_users_by_params(params)
+    @response, @users = User.query_users_by_params(params)
   end
 
   def create
-    @user = User.create_user_by_params(params)
+    @response, @user = User.create_user_by_params(params)
     render :show
   end
 
   def show
+    @response, @user = User.query_user_by_id(params)
   end
 
   def update
-    @user = User.update_user_by_params(params)
+    @response, @user = User.update_user_by_params(params)
     render :show
   end
 
   def destroy
-    User.delete_user_by_params(params)
-    head :no_content
+    @response = User.delete_user_by_params(params)
   end
 
   def login
-    @user = User.sign_in_by_params(params)
-  end
-
-  private
-
-  def set_user
-    @user = User.find(params[:id])
+    @response, @user = User.sign_in_by_params(params)
+    render :show
   end
 end
