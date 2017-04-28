@@ -5,4 +5,3 @@ json.photo do
     json.nil!
   end
 end
-

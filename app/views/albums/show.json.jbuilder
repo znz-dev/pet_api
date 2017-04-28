@@ -8,4 +8,3 @@ json.album do
     json.nil!
   end
 end
-

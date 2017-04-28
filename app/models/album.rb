@@ -1,5 +1,5 @@
 class Album < ApplicationRecord
-  has_many :photos
+  has_many :photos, dependent: :destroy
   belongs_to :pet
   def self.create_album_by_params(params)
     album = nil
