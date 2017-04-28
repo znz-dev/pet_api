@@ -1,16 +1,17 @@
-json.extract! pet, :id, :name, :species, :gender, :status, :avatar
-if pet.provider.present?
-  json.provider do
+json.extract! pet, :id, :name, :species, :gender, :status, :avatar, :description
+
+json.provider do
+  if pet.provider.present?
     json.partial! 'users/user', user: pet.provider, category: :pets_index
+  else
+    json.nil!
   end
-else
-  json.provider nil
 end
 
-if pet.adopter.present?
-  json.adopter do
+json.adopter do
+  if pet.adopter.present?
     json.partial! 'users/user', user: pet.adopter, category: :pets_index
+  else
+    json.nil!
   end
-else
-  json.adopter nil
 end

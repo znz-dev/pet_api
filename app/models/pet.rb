@@ -50,7 +50,12 @@ class Pet < ApplicationRecord
     pet = nil
     response = Response.rescue do |res|
       pet = Pet.find_by_id(params[:id])
+      if params[:adopter_id].present?
+        user = User.find_by_id(params[:adopter_id])
+        res.raise_error('不存在该收养人') if user.blank?
+      end
       pet.update!(pet_params(params))
+
     end
 
     [response, pet]
@@ -69,6 +74,6 @@ class Pet < ApplicationRecord
 
   # TODO 这里没有验证 provider 和 adopter 是否存在
   def self.pet_params(params)
-    params.permit(:name, :species, :gender, :status, :avatar, :provider_id, :adopter_id)
+    params.permit(:name, :species, :gender, :status, :avatar, :provider_id, :adopter_id, :description)
   end
 end
