@@ -3,7 +3,7 @@ require 'carrierwave/orm/activerecord'
 class Pet < ApplicationRecord
   belongs_to :provider, class_name: 'User'
   belongs_to :adopter, class_name: 'User', optional: :true
-  has_one :album, dependency: :destroy
+  has_one :album, dependent: :destroy
   mount_uploader :avatar, AvatarUploader
 
   module Order
