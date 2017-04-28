@@ -21,4 +21,8 @@ class PetsController < ApplicationController
   def destroy
     @response = Pet.delete_pet_by_params(params)
   end
+
+  def album
+    @response, @album = Ablum.get_album_by_pet(params)
+  end
 end
