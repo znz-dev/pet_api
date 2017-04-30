@@ -14,7 +14,8 @@ class Pet < ApplicationRecord
   def self.query_pets_by_params(params)
     pets = []
     response = Response.rescue do |res|
-      pets = Pet.all.includes(:provider)
+      search_params = params[:search]
+      pets = Pet.search_by_params(search_params)
       case params[:order]
       when Order::TIME_ASC
         pets = pets.order(created_at: :asc)
