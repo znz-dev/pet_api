@@ -1,4 +1,4 @@
-json.extract! pet, :id, :name, :species, :gender, :status, :avatar, :description
+json.extract! pet, :id, :name, :species, :gender, :status, :avatar, :description, :liked, :location
 
 json.provider do
   if pet.provider.present?

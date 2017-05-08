@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   has_many :pets, foreign_key: :provider_id
 
+  has_many :pets, foreign_key: :adopter_id
+
   def self.query_users_by_params(params)
     users = []
     response = Response.rescue do |res|
