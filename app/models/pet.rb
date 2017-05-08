@@ -64,7 +64,7 @@ class Pet < ApplicationRecord
 
   def self.delete_pet_by_params(params)
     response = Response.rescue do |res|
-      pet = Pet.find_by_id(params [:id])
+      pet = Pet.find_by_id(params[:id])
       res.raise_error('该用户不存在') if pet.blank?
       pet.destroy!
     end

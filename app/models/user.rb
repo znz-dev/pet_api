@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   has_many :pets, foreign_key: :adopter_id
 
+  has_many :messages, foreign_key: :sender_id
+
+  has_many :messages, foreign_key: :reviever_id
+
   def self.query_users_by_params(params)
     users = []
     response = Response.rescue do |res|

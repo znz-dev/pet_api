@@ -25,4 +25,8 @@ class UsersController < ApplicationController
     @response, @user = User.sign_in_by_params(params)
     render :show
   end
+
+  def messages
+    @response, @messages = Message.query_messages_by_params(params)
+  end
 end

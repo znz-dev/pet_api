@@ -17,7 +17,7 @@ class PetApplication < ApplicationRecord
   end
 
   def self.delete_pet_application_by_params(params)
-    pet_application = PetApplication.find(params [:id])
+    pet_application = PetApplication.find(params[:id])
     pet_application.destroy!
   end
 end

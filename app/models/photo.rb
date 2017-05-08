@@ -24,7 +24,7 @@ class Photo < ApplicationRecord
 
   def self.delete_photo_by_params(params)
     response = Response.rescue do |res|
-      photo = Photo.find_by_id(params [:id])
+      photo = Photo.find_by_id(params[:id])
       res.raise_error('该相片不存在') if photo.blank?
       photo.destroy!
     end
