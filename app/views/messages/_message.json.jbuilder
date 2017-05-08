@@ -1,4 +1,9 @@
-json.extract! message, :id, :content, :status, :created_at
+case category ||= nil
+  when :show
+    json.extract! message, :id, :title, :content, :status, :created_at
+  else
+    json.extract! message, :id, :title, :status, :created_at
+end
 
 json.sender do
   # message.sender

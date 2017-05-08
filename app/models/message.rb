@@ -62,6 +62,6 @@ class Message < ApplicationRecord
   private
 
   def self.message_params(params)
-    params.permit(:receiver_id, :content)
+    params.permit(:receiver_id, :title, :content)
   end
 end
