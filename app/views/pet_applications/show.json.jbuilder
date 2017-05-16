@@ -1,1 +1,0 @@
-json.partial! 'pet_applications/pet_application', pet_application: @pet_application

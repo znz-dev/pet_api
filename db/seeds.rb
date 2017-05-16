@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+user = User.create(id: 1, username: :admin, password: '123456')
+
 pets = Pet.create([
                       {name: '哈士奇', species: 'dog', gender: 'male', provider_id: '1'},
                       {name: '布偶猫', species: 'cat', gender: 'female', provider_id: '1'},
