@@ -4,6 +4,7 @@ class Pet < ApplicationRecord
   belongs_to :provider, class_name: 'User'
   belongs_to :adopter, class_name: 'User', optional: :true
   has_one :album, dependent: :destroy
+  has_many :comments, dependent: :destroy
   mount_uploader :avatar, AvatarUploader
 
   module Order

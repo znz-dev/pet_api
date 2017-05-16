@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :photos
   resources :messages, only: %i(create show destroy)
   resources :comments, only: %i(create destroy)
+  resources :topics, only: %i(index create show update destroy)
 
   post '/login', to: 'users#login'
 end

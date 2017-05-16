@@ -9,8 +9,9 @@ class Comment < ApplicationRecord
   def self.create_comment_by_params(params)
     comment = nil
     response = Response.rescue do |res|
-      comment = Comment.create!(comment_params(params))
+      comment = Comment.new(comment_params(params))
       res.error('数据有误') if comment.user.blank? || comment.pet.blank?
+      comment.save!
     end
     [response, comment]
   end
