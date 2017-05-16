@@ -25,4 +25,8 @@ class PetsController < ApplicationController
   def album
     @response, @album = Ablum.get_album_by_pet(params)
   end
+
+  def comments
+    @response, @comments = Comment.query_comments_by_params(params)
+  end
 end
