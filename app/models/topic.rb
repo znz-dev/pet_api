@@ -2,6 +2,8 @@ class Topic < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
 
+  has_many :topics, dependent: :destroy
+
   mount_uploader :avatar, AvatarUploader
 
   def self.create_topic_by_params(params)

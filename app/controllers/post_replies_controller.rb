@@ -1,0 +1,2 @@
+class PostRepliesController < ApplicationController
+end

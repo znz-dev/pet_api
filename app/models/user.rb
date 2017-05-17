@@ -11,6 +11,10 @@ class User < ApplicationRecord
 
   has_many :messages, foreign_key: :reviever_id
 
+  has_many :posts
+
+  has_many :post_replies
+
   def self.query_users_by_params(params)
     users = []
     response = Response.rescue do |res|
