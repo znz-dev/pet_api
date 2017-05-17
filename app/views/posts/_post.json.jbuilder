@@ -1,4 +1,4 @@
-json.extract! post, :id, :title
+json.extract! post, :id, :topic_id, :title
 
 json.user do
   if post.user.present?

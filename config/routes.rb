@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   resources :messages, only: %i(create show destroy)
   resources :comments, only: %i(create destroy)
   resources :topics, only: %i(index create show update destroy)
-  resources :posts, only: %i(index create show destroy)
+  resources :posts, only: %i(index create show destroy) do
+    resources :post_replies, only: %i(create destroy)
+  end
 
   post '/login', to: 'users#login'
 end
