@@ -29,4 +29,8 @@ class UsersController < ApplicationController
   def messages
     @response, @messages = Message.query_messages_by_params(params)
   end
+
+  def collections
+    @response, @collections = Collection.query_collections_by_params(params)
+  end
 end

@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   validates :topic_id, :user_id, :title, presence: true
 
   has_many :post_replies, dependent: :destroy
+  has_many :collections, as: :resource
 
   def self.create_post_by_params(params)
     post = nil
