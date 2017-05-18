@@ -1,4 +1,4 @@
-json.extract! post_reply, :id, :content
+json.extract! post_reply, :id, :content, :created_at
 
 json.user do
   if post_reply.user.present?
