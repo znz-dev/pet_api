@@ -7,9 +7,18 @@ end
 
 json.sender do
   # message.sender
-  json.partial! 'users/user', user: message.sender, category: :pets_index
+  if message.sender.present?
+    json.partial! 'users/user', user: message.sender, category: :pets_index
+  else
+    json.nil!
+  end
 end
-json.receiver  do
+
+json.receiver do
   # message.receiver
-  json.partial! 'users/user', user: message.receiver, category: :pets_index
+  if message.receiver.present?
+    json.partial! 'users/user', user: message.receiver, category: :pets_index
+  else
+    json.nil!
+  end
 end
