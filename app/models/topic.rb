@@ -2,7 +2,7 @@ class Topic < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
 
-  has_many :topics, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
 
