@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :post_replies, only: %i(create destroy)
   end
   resources :collections, only: %i(create destroy)
+  resources :adoption_applies, only: %i(create update index)
 
   post '/login', to: 'users#login'
 end

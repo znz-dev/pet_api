@@ -76,7 +76,6 @@ class Pet < ApplicationRecord
 
   private
 
-  # TODO 这里没有验证 provider 和 adopter 是否存在
   def self.pet_params(params)
     params.permit(:name, :species, :gender, :status, :avatar, :provider_id, :adopter_id, :description, :liked, :location)
   end
