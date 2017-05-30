@@ -26,10 +26,20 @@ class Response
     response
   end
 
-  def self.error
+  def self.error(message)
     response = self.new
     response.code = Code::ERROR
-    response.message = '未知异常'
+    response.message = message
     response
+  end
+
+  def error(message)
+    self.code = Code::ERROR
+    self.message = message
+  end
+
+  def raise_error(message)
+    self.code = Code::ERROR
+    self.message = message
   end
 end

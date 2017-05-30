@@ -23,7 +23,7 @@ class PetsController < ApplicationController
   end
 
   def album
-    @response, @album = Ablum.get_album_by_pet(params)
+    @response, @album = Album.query_album_by_pet(params)
   end
 
   def comments

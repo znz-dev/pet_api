@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     get :collections
   end
   resources :pets, only: %i(index create show update destroy) do
-    get :ablum
+    get :album
     get :comments
   end
   resources :pet_applications
