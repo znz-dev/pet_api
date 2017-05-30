@@ -71,7 +71,7 @@ class AdoptionApply < ApplicationRecord
       AdoptionApply.transaction do
         pet.update_attributes!(adopter: adoption_apply.user)
         adoption_apply.update_attributes!(status: Status::PERMITTED)
-        AdoptionApply.where(status: Status::PERMIT_PENDING).update(status: Status::EXPIRED)
+        AdoptionApply.where(pet: pet).where(status: Status::PERMIT_PENDING).update(status: Status::EXPIRED)
       end
     end
   end
