@@ -77,6 +77,7 @@ class Pet < ApplicationRecord
   private
 
   def self.pet_params(params)
-    params.permit(:name, :species, :gender, :status, :avatar, :provider_id, :adopter_id, :description, :liked, :location)
+    params.permit(:name, :species, :gender, :status, :avatar, :provider_id, :adopter_id, :description, :liked,
+                  :location, :requirement, :health, :age)
   end
 end
